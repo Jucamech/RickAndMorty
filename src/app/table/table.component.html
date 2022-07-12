@@ -1,0 +1,51 @@
+<div class="general">
+  <div class="title">
+    <h1>Personajes</h1>
+  </div>
+  <div class="data">
+    <div class="totalChar">
+      <span>Total de personajes: {{totalChars}}</span>
+    </div>
+    <div class="charStatus">
+      <div class="aliveChar">
+        <span>Personajes vivos {{aliveChars}}</span>
+      </div>
+      <div class="deadChar">
+        <span>Personajes muertos {{deadChars}}</span>
+      </div>
+    </div>
+    <div>
+      <input type="text" name="buscar" id="buscar" placeholder="Buscar">
+    </div>
+  </div>
+  <div class="table">
+    <table class="table table-striped table-borderless">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Vivo</th>
+          <th>Especie</th>
+          <th>Genero</th>
+          <th>Origen</th>
+          <th>Locación</th>
+          <th>Capitulos</th>
+          <th>Fecha</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of characters">
+          <td>{{item.name}}</td>
+          <td>{{item.status}}</td>
+          <td>{{item.species}}</td>
+          <td>{{item.gender}}</td>
+          <td>{{item.origin.name}}</td>
+          <td>{{item.location.name}}</td>
+          <td>{{item.episode}}</td>
+          <td>{{item.created | date:'dd-MM-yyyy'}}</td>
+          <td>acciones</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

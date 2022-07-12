@@ -1,0 +1,16 @@
+.header{
+  background-color: #10454F;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 15% 70% 15%;
+}
+
+.header-logo{
+  margin-left: 32px;
+}
+
+.header-icons{
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 10px;
+}
