@@ -2,7 +2,7 @@
   background-color: #10454F;
   width: 100%;
   display: grid;
-  grid-template-columns: 15% 70% 15%;
+  grid-template-columns: 15% 75% 10%;
 }
 
 .header-logo{
@@ -10,7 +10,12 @@
 }
 
 .header-icons{
+  padding-top: 15px;
   display: grid;
   grid-template-columns: auto auto;
   gap: 10px;
+}
+
+.header-icons div img{
+  cursor: pointer;
 }

@@ -7,10 +7,17 @@ import { HeaderComponent } from './header/header.component';
 import { TableComponent } from './table/table.component';
 
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { SearchPipe } from './search.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, TableComponent],
-  imports: [BrowserModule, AppRoutingModule, SweetAlert2Module.forRoot()],
+  declarations: [AppComponent, HeaderComponent, TableComponent, SearchPipe],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    SweetAlert2Module.forRoot(),
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

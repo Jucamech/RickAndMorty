@@ -8,17 +8,17 @@ import Swal from 'sweetalert2';
   styleUrls: ['./table.component.css'],
 })
 export class TableComponent implements OnInit {
-  characters: any;
+  characters: any = undefined || [];
   totalChars: number = 0;
   aliveChars: number = 0;
   deadChars: number = 0;
+  searchField: string = '';
   constructor() {}
 
   ngOnInit(): void {
     fetch('https://rickandmortyapi.com/api/character')
       .then((response) => response.json())
       .then((data) => (this.characters = data['results']))
-      .then(() => console.log(this.characters));
     this.charStatus(this.characters);
   }
 

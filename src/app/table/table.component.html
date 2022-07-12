@@ -8,20 +8,21 @@
     </div>
     <div class="charStatus">
       <div class="aliveChar">
-        <span>Personajes vivos {{ aliveChars }}</span>
+        <span><img src="../../assets/icons/Icono de vivo.png"> Personajes vivos {{ aliveChars }}</span>
       </div>
       <div class="deadChar">
-        <span>Personajes muertos {{ deadChars }}</span>
+        <span><img src="../../assets/icons/Icono de muerto.png"> Personajes muertos {{ deadChars }}</span>
       </div>
     </div>
     <div class="search">
       <div></div>
       <img src="../../assets/icons/Icono de busqueda.png" alt="Busqueda">
-      <input type="text" name="buscar" id="buscar" placeholder="Buscar" />
+      <input type="text" name="buscar" id="buscar" placeholder="Buscar" [(ngModel)]="searchField"/>
     </div>
+    <div></div>
   </div>
   <div class="table">
-    <table class="table table-striped table-borderless">
+    <table>
       <thead>
         <tr>
           <th>Nombre</th>
@@ -36,7 +37,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of characters">
+        <tr *ngFor="let item of characters | search:searchField">
           <td>{{ item.name }}</td>
           <td>
             <span *ngIf="item.status == 'Alive'">
