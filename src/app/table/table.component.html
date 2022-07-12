@@ -1,21 +1,23 @@
 <div class="general">
   <div class="title">
-    <h1>Personajes</h1>
+    <h1><span><img src="../../assets/icons/camera-movie.png"></span> Personajes</h1>
   </div>
   <div class="data">
     <div class="totalChar">
-      <span>Total de personajes: {{totalChars}}</span>
+      <span>Total de personajes: {{ totalChars }}</span>
     </div>
     <div class="charStatus">
       <div class="aliveChar">
-        <span>Personajes vivos {{aliveChars}}</span>
+        <span>Personajes vivos {{ aliveChars }}</span>
       </div>
       <div class="deadChar">
-        <span>Personajes muertos {{deadChars}}</span>
+        <span>Personajes muertos {{ deadChars }}</span>
       </div>
     </div>
-    <div>
-      <input type="text" name="buscar" id="buscar" placeholder="Buscar">
+    <div class="search">
+      <div></div>
+      <img src="../../assets/icons/Icono de busqueda.png" alt="Busqueda">
+      <input type="text" name="buscar" id="buscar" placeholder="Buscar" />
     </div>
   </div>
   <div class="table">
@@ -35,15 +37,29 @@
       </thead>
       <tbody>
         <tr *ngFor="let item of characters">
-          <td>{{item.name}}</td>
-          <td>{{item.status}}</td>
-          <td>{{item.species}}</td>
-          <td>{{item.gender}}</td>
-          <td>{{item.origin.name}}</td>
-          <td>{{item.location.name}}</td>
-          <td>{{item.episode}}</td>
-          <td>{{item.created | date:'dd-MM-yyyy'}}</td>
-          <td>acciones</td>
+          <td>{{ item.name }}</td>
+          <td>
+            <span *ngIf="item.status == 'Alive'">
+              <img src="../../assets/icons/Icono de vivo.png" />
+            </span>
+            <span *ngIf="item.status == 'Dead'">
+              <img src="../../assets/icons/Icono de muerto.png" />
+            </span>
+            <span *ngIf="item.status =='unknown'">
+              {{ item.status }}
+            </span>
+          </td>
+          <td>{{ item.species }}</td>
+          <td>{{ item.gender }}</td>
+          <td>{{ item.origin.name }}</td>
+          <td>{{ item.location.name }}</td>
+          <td>{{ item.episode.length }}</td>
+          <td>{{ item.created | date: "dd-MM-yyyy" }}</td>
+          <td>
+            <button (click)="modalImage(item.image,item.name)">
+              <span><img src="../../assets/icons/Icono imagen.png">Acciones</span>
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>

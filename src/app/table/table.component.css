@@ -33,6 +33,18 @@
 
 }
 
+.search{
+  display: grid;
+  grid-template-columns: 5% 5% 90%;
+  border: 1px solid #819397;
+  border-radius: 10px;
+}
+
+.search input{
+  border: none;
+  border-radius: 0px 10px 10px 0px;
+}
+
 .table{
   margin-top: 24px;
   width: 100%;

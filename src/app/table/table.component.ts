@@ -1,4 +1,6 @@
+import { AppComponent } from './../app.component';
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-table',
@@ -17,16 +19,26 @@ export class TableComponent implements OnInit {
       .then((response) => response.json())
       .then((data) => (this.characters = data['results']))
       .then(() => console.log(this.characters));
-    this.charStatus();
+    this.charStatus(this.characters);
   }
 
-  charStatus(){
-    for(var i = 0;i<=this.characters.lenght;i++){
-      if(this.characters[i]=="Alive"){
+  charStatus(char: any){
+    console.log(char)
+    for(var i = 0;i<=char.lenght;i++){
+      if(char[i]=="Alive"){
         this.aliveChars += 1
       } else {
         this.deadChars +=1
       }
     }
+  }
+
+  modalImage(img:string, name: string){
+    Swal.fire({
+      imageUrl: img,
+      imageHeight: 500,
+      imageAlt: 'Texto',
+      text: name,
+    });
   }
 }
