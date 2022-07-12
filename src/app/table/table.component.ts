@@ -16,34 +16,35 @@ export class TableComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.getData()
-    this.getData2()
+    this.getData();
+    this.getData2();
     this.charStatus(this.characters);
   }
 
-  getData(){
+  getData() {
     fetch('https://rickandmortyapi.com/api/character')
       .then((response) => response.json())
       .then((data) => (this.characters = data['results']));
   }
 
-  getData2(){
+  getData2() {
     fetch('https://rickandmortyapi.com/api/character')
       .then((response) => response.json())
-      .then((data) => this.totalChars = data['results'].length);
+      .then((data) => (this.totalChars = data['results'].length));
   }
 
-  charStatus(char: any){
-    for(var i = 0;i<=char.length;i++){
-      if(char[i]=="Alive"){
-        this.aliveChars += 1
+  charStatus(char: any) {
+    console.log(char);
+    for (var i = 0; i <= char.length; i++) {
+      if (char[i] == 'Alive') {
+        this.aliveChars += 1;
       } else {
-        this.deadChars +=1
+        this.deadChars += 1;
       }
     }
   }
 
-  modalImage(img:string, name: string){
+  modalImage(img: string, name: string) {
     Swal.fire({
       imageUrl: img,
       imageHeight: 500,
