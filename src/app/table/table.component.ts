@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./table.component.css'],
 })
 export class TableComponent implements OnInit {
-  characters: any = undefined || [];
+  characters: Array<string> = [];
   totalChars: number = 0;
   aliveChars: number = 0;
   deadChars: number = 0;
@@ -16,15 +16,25 @@ export class TableComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    fetch('https://rickandmortyapi.com/api/character')
-      .then((response) => response.json())
-      .then((data) => (this.characters = data['results']))
+    this.getData()
+    this.getData2()
     this.charStatus(this.characters);
   }
 
+  getData(){
+    fetch('https://rickandmortyapi.com/api/character')
+      .then((response) => response.json())
+      .then((data) => (this.characters = data['results']));
+  }
+
+  getData2(){
+    fetch('https://rickandmortyapi.com/api/character')
+      .then((response) => response.json())
+      .then((data) => this.totalChars = data['results'].length);
+  }
+
   charStatus(char: any){
-    console.log(char)
-    for(var i = 0;i<=char.lenght;i++){
+    for(var i = 0;i<=char.length;i++){
       if(char[i]=="Alive"){
         this.aliveChars += 1
       } else {

@@ -22,9 +22,15 @@
 
 .charStatus{
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto 0.5% auto;
   border: 1px solid #819397;
   border-radius: 5px;
+}
+
+.verticalLine{
+  border-left: 1px solid #819397;
+  padding-top: 5%;
+  height: 90%;
 }
 
 .search{
@@ -58,4 +64,12 @@
   height: 50px;
   border-radius: 5px;
   border: none;
+}
+
+.table table thead tr th:first-child{
+  border-radius: 10px 0px 0px 0px;
+}
+
+.table table thead tr th:last-child{
+  border-radius: 0px 10px 0px 0px;
 }
