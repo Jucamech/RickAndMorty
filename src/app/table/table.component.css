@@ -79,6 +79,6 @@
   height: 16px;
 }
 
-.table table tbody, .table table tbody tr{
+.table table tbody, .table table tbody tr, .table table tbody tr td button{
   border: none;
 }
