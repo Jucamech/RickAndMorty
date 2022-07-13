@@ -24,7 +24,6 @@ export class TableComponent implements OnInit {
     fetch('https://rickandmortyapi.com/api/character')
       .then((response) => response.json())
       .then((data) => (this.characters = data['results']))
-      // .then((val) => (this.totalChars=val.length))
       .then((dead) => (this.charStatus(dead)));
   }
 
