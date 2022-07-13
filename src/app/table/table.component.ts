@@ -24,17 +24,18 @@ export class TableComponent implements OnInit {
     fetch('https://rickandmortyapi.com/api/character')
       .then((response) => response.json())
       .then((data) => (this.characters = data['results']))
-      .then((val) => (this.totalChars=val.length));
+      // .then((val) => (this.totalChars=val.length))
+      .then((dead) => (this.charStatus(dead)));
   }
 
   charStatus(char: any) {
-    console.log(char);
     for (var i = 0; i <= char.length; i++) {
-      if (char[i] == 'Alive') {
+      if (char[i]['status'] == 'Alive') {
         this.aliveChars += 1;
-      } else {
+      } else  if (char[i]['status'] == 'Dead'){
         this.deadChars += 1;
       }
+      this.totalChars = char.length
     }
   }
 
